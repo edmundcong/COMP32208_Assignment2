@@ -68,15 +68,17 @@ def variance(sum_runs, mean):
 		totalDiffSquared += difference*difference
 	return totalDiffSquared/n
 
-
-if __name__ == "__main__":
-
+def main(m, n):
 	sum_runs = []
 
-	for i in xrange(int(sys.argv[1])):
-		sum_runs.append(run(int(sys.argv[2])))
+	for i in xrange(int(m)):
+		sum_runs.append(run(int(n)))
 	
 	networkMean = mean(sum_runs) 
 	networkVariance = variance(sum_runs, networkMean)
 	print format(networkMean, '.6f'), format(networkVariance, '.6f')
+
+if __name__ == "__main__":
+	main(sys.argv[1], sys.argv[2])
+
 

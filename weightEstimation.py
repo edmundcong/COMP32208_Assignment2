@@ -1,10 +1,8 @@
 import random
 import sys
-import numpy as np
 
 def randomise(prob):
 	r = random.random()
-	# print r, prob
 	if r <= prob:
 		return True
 	return False
@@ -28,9 +26,7 @@ def create_sample():
 		weighting *= .5 #visit s with !c
 		rain = randomise(.20) #visit r with !c 
 
-	# if sprinker:
-
-	if sprinkler and rain:
+	if sprinkler and rain: 
 		weighting *= .99
 	elif sprinkler and not rain:
 		weighting *= .90
@@ -52,6 +48,7 @@ def run(n_samples):
 		allSamples += x['weighting']
 	return float(positive/allSamples)
 
+# calculate mean
 def mean(sum_runs):
 	mean = 0.0
 	n = len(sum_runs)
@@ -59,6 +56,7 @@ def mean(sum_runs):
 		mean += sum_runs[i]
 	return mean/n
 
+# calculate variance
 def variance(sum_runs, mean):
 	variance = 0.0
 	n = len(sum_runs)
